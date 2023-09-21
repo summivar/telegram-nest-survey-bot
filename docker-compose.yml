@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  mongo:
+    image: mongo:latest
+    network_mode: "host"
+    restart: always
+    volumes:
+      - ./mongo_db:/data/db
+  userservice:
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run start:dev
+    restart: always
+    depends_on:
+      - mongo
+volumes:
+  mongo: {}
