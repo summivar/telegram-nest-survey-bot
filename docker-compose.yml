@@ -7,7 +7,7 @@ services:
     restart: always
     volumes:
       - ./mongo_db:/data/db
-  userservice:
+  bot:
     network_mode: "host"
     build:
       context: .

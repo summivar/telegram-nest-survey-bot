@@ -60,10 +60,6 @@ export class GetStatisticsSurveyService {
     return Number((totalLevel / survey.answers.length).toFixed(2));
   }
 
-  existedFileToDelete(filename: string) {
-
-  }
-
   async createGraph(survey: SurveyEntity, fileName: string, type: CharType) {
     const width = 1000;   // define width and height of canvas
     const height = 1000;
